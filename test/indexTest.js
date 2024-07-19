@@ -1,12 +1,18 @@
-// The code below ensures that students who are using CodeGrade will get credit
-// for the code-along in Canvas; you can disregard it.
+function bigShoeRebounds(players) {
+  if (players.length === 0) return null;
 
-require("./helpers.js");
+  let maxShoeSize = -Infinity;
+  let reboundsOfMaxShoePlayer = 0;
 
-describe("", () => {
-  describe("", () => {
-    it("Test passing", () => {
-      return true;
-    });
-  });
-});
+  for (let player of players) {
+      console.log(`Checking player: ${player.name}, shoeSize: ${player.shoeSize}, rebounds: ${player.rebounds}`);
+      if (player.shoeSize > maxShoeSize) {
+          maxShoeSize = player.shoeSize;
+          reboundsOfMaxShoePlayer = player.rebounds;
+          console.log(`New max shoe size found: ${maxShoeSize}, rebounds: ${reboundsOfMaxShoePlayer}`);
+      }
+  }
+
+  console.log(`Player with largest shoe size has: ${reboundsOfMaxShoePlayer} rebounds`);
+  return reboundsOfMaxShoePlayer;
+}
